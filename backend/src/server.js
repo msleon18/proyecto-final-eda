@@ -2,10 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const pool = require("./db/connection");
 const stackRoutes = require("./routes/stack.routes");
+const queueRoutes = require("./routes/queue.routes");
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api/stack", stackRoutes);
+app.use("/api/queue", queueRoutes);
 app.get("/api/health", async (req, res) => {
   try {
     const result = await pool.query("SELECT NOW()");
