@@ -4,6 +4,7 @@ const Stack = require("../structures/Stack");
 const {
   guardarOperacion,
   obtenerHistorial,
+  resetEstructura,
 } = require("../db/operacionesRepository");
 const pilaActual = new Stack();
 router.get("/", (req, res) => {
@@ -42,6 +43,18 @@ router.get("/historial", async (req, res) => {
   try {
     const historial = await obtenerHistorial("stack");
     res.json(historial);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+router.post("/reset", async (req, res) => {
+  try {
+    pilaActual.reset();
+    await resetEstructura("stack", []);
+    res.json({
+      mensaje: "Pila reiniciada correctamente",
+      items: pilaActual.toArray(),
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

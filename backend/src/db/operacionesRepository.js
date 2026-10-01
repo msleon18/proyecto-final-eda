@@ -21,4 +21,42 @@ async function obtenerHistorial(estructura) {
   const resultado = await pool.query(query, [estructura]);
   return resultado.rows;
 }
-module.exports = { guardarOperacion, obtenerHistorial };
+async function resetEstructura(estructura, estadoVacio) {
+  const cliente = await pool.connect();
+  try {
+    await cliente.query("BEGIN");
+    await cliente.query("DELETE FROM operaciones WHERE estructura = $1", [
+      estructura,
+    ]);
+    await cliente.query(
+      "INSERT INTO operaciones (estructura, tipo_operacion, valor, estado_resultante) VALUES ($1, $2, $3, $4)",
+      [estructura, "reset", null, JSON.stringify(estadoVacio)],
+    );
+    await cliente.query("COMMIT");
+  } catch (error) {
+    await cliente.query("ROLLBACK");
+    throw error;
+  } finally {
+    cliente.release();
+  }
+}
+async function resetEstructura(estructura, estadoVacio) {
+  const cliente = await pool.connect();
+  try {
+    await cliente.query("BEGIN");
+    await cliente.query("DELETE FROM operaciones WHERE estructura = $1", [
+      estructura,
+    ]);
+    await cliente.query(
+      "INSERT INTO operaciones (estructura, tipo_operacion, valor, estado_resultante) VALUES ($1, $2, $3, $4)",
+      [estructura, "reset", null, JSON.stringify(estadoVacio)],
+    );
+    await cliente.query("COMMIT");
+  } catch (error) {
+    await cliente.query("ROLLBACK");
+    throw error;
+  } finally {
+    cliente.release();
+  }
+}
+module.exports = { guardarOperacion, obtenerHistorial, resetEstructura };

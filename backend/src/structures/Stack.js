@@ -21,8 +21,6 @@ class Stack {
   isEmpty() {
     return this.items.length === 0;
   }
-  toArray() {
-    return [...this.items];
-  }
+  toArray() { return [...this.items]; } reset() { this.items = []; }
 }
 module.exports = Stack;
