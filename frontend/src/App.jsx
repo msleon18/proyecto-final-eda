@@ -2,6 +2,7 @@ import StackVisualizer from "./components/Stack/StackVisualizer";
 import QueueVisualizer from "./components/Queue/QueueVisualizer";
 import BSTVisualizer from "./components/BST/BSTVisualizer";
 import HeapVisualizer from "./components/Heap/HeapVisualizer";
+import GrafoVisualizer from "./components/Grafo/GrafoVisualizer";
 import "./App.css";
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <QueueVisualizer />
       <BSTVisualizer />
       <HeapVisualizer />
+      <GrafoVisualizer />
     </div>
   );
 }
