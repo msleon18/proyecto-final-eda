@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://localhost:3000/api/heap";
+const API_URL = `${import.meta.env.VITE_API_URL}/heap`;
 export async function obtenerEstado() {
   const respuesta = await axios.get(API_URL);
   return respuesta.data.items;
