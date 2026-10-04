@@ -1,16 +1,1 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Visualizador Interactivo de Estructuras de Datos Proyecto final de Estructuras de Datos y Algoritmos 2.1. Plataforma visual para explorar operaciones sobre 5 estructuras de datos, con persistencia en base de datos y manejo de transacciones. ## Integrante - Maycol Leon - msleon18 ## Estructuras implementadas | Estructura | Carpeta backend | Carpeta frontend | |---|---|---| | Pila (Stack) | backend/src/structures/Stack.js | frontend/src/components/Stack | | Cola (Queue) | backend/src/structures/Queue.js | frontend/src/components/Queue | | Arbol Binario de Busqueda (BST) | backend/src/structures/ArbolBinarioBusqueda.js | frontend/src/components/BST | | Heap (Min-Heap) | backend/src/structures/MinHeap.js | frontend/src/components/Heap | | Grafo (BFS/DFS) | backend/src/structures/Grafo.js | frontend/src/components/Grafo | ## Tecnologias - Frontend: React + Vite - Backend: Node.js + Express - Base de datos: PostgreSQL (Supabase) ## Despliegue - Frontend: https://iridescent-treacle-8d3e02.netlify.app - Backend: https://proyecto-final-eda.onrender.com Nota: el backend esta en el plan gratuito de Render, por lo que puede tardar hasta 50 segundos en responder la primera peticion despues de un periodo de inactividad. ## Documento final Ver carpeta docs/ ## Como correr en local ### Backend ```bash cd backend npm install npm run dev ``` ### Frontend ```bash cd frontend npm install npm run dev ```
